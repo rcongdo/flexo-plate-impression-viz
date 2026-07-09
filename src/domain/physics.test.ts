@@ -78,3 +78,13 @@ describe('computeFeatureState - compression monotonicity', () => {
     expect(dotsGainRatio).toBeGreaterThan(solidGainRatio);
   });
 });
+
+describe('computeFeatureState - inkCoverage clamping', () => {
+  it('clamps inkCoverage to [0, 1] even at maximum anilox volume with highest-efficiency feature', () => {
+    const solid = PLATE_FEATURES.find((f) => f.id === 'solid')!;
+    const state = computeFeatureState(solid, 10, 50);
+
+    expect(state.inkCoverage).toBeLessThanOrEqual(1);
+    expect(state.inkCoverage).toBeGreaterThan(0);
+  });
+});
