@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f0f0ec;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.panels {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.panels svg {
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.print-preview {
+  display: flex;
+  gap: 8px;
+}
+
+.print-preview canvas {
+  border: 1px solid #ccc;
+}
+
+.print-preview-labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.print-preview-labels span {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 12px;
+  width: 80px;
+}
+
+.control-strip {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.control label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.control input[type='range'] {
+  width: 100%;
+}
