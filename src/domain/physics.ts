@@ -3,7 +3,6 @@ import type { PlateFeature } from './features';
 const MAX_FILM_THICKNESS_MICRONS = 8;
 const SATURATION_CONSTANT = 4;
 const STARVATION_THRESHOLD_MICRONS = 4;
-const KISS_BAND_MILS = 3;
 const BULGE_MILS_PER_COMPRESSION = 0.6;
 const GAP_AT_MIN_IMPRESSION_MILS = 60;
 const GAP_AT_MAX_IMPRESSION_MILS = 10;
@@ -46,7 +45,7 @@ export function computeFeatureState(
   let contactState: ContactState;
   if (gapMils > feature.reliefMils) {
     contactState = 'none';
-  } else if (compressionDepthMils < KISS_BAND_MILS) {
+  } else if (compressionDepthMils === 0) {
     contactState = 'kiss';
   } else {
     contactState = 'overdrive';

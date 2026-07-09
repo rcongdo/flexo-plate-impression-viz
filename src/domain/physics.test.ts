@@ -48,6 +48,12 @@ describe('computeFeatureState - contact state transitions', () => {
     expect(state.contactState).toBe('overdrive');
     expect(state.compressionDepthMils).toBeGreaterThan(0);
   });
+
+  it('reports overdrive immediately past the kiss point, with no tolerance band', () => {
+    const state = computeFeatureState(solid, 5, 62);
+    expect(state.compressionDepthMils).toBeGreaterThan(0);
+    expect(state.contactState).toBe('overdrive');
+  });
 });
 
 describe('computeFeatureState - compression monotonicity', () => {
